@@ -22,7 +22,7 @@ public class DecimalToBinary {
 		
 			Scanner input = new Scanner(System.in);
 		
-			System.out.println("Enter values");
+			System.out.println("Enter value");
 		
 			String decimalValues = input.nextLine();
 		

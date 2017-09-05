@@ -24,28 +24,36 @@ import java.util.Scanner;
 public class TempConvert {
 
 	public static void main(String[] args) {
+		double temperatureInput; 
+		double tempConversion = 0;
+		
+		
+		
+//*****-----USER INPUT SECTION-----******
 		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.print("Please enter a temperature");
+		System.out.print("Please enter a temperature to convert");
 		
-		String temperatureInput = input.nextLine();
+		temperatureInput = input.nextDouble();
 	
-		
-		
 		System.out.print("Is temperature in (C)elsius or (F)arenheit ?");
 		
-		String imperialMetric = input.nextLine();
-	
+//*****-----STRING CONVERSION SECTION-----******		
+		String typeOfTemperature = input.nextLine();
+		
+		System.out.print(temperatureInput + typeOfTemperature + " is " + tempConversion +
+			(typeOfTemperature.toLowerCase().startsWith("f") ? "c" : "f"));
 	}
 	
-	public static double tempConversion(double temperatureInput, String imperialMetric) {
+//*****-----TEMP CONVERSION SECTION-----******	
+	public static double tempConversion(double temperatureInput, String typeOfTemperature) {
 		
-		if(imperialMetric.toLowerCase().startsWith("f")) {
+		if(typeOfTemperature.equals("c")) {
 			double tempConversion = (temperatureInput - 32) / 1.8;
 			return tempConversion;
 		} else {
-			double tempConversion = temperatureInput * 1.8 + 32;
+			double tempConversion = (temperatureInput * 1.8) + 32;
 			return tempConversion;
 		}
 	}
