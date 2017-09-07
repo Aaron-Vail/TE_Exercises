@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 public class Exercises {
 
@@ -113,9 +114,14 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return (oddOnly(integerArray));
-		
-	}
+		 List<Integer> oddNumbers = new ArrayList<>();
+		   for(int i = 0; i < integerArray.length; i++) {
+		      if(integerArray[i] % 2 != 0) {
+		         oddNumbers.add(integerArray[i]);
+		      }
+		   }
+		   return oddNumbers;
+		}
 	
 	/* 
 	 Given a List of Integers, and an int value, return true if the int value appears two or more times in 
@@ -125,7 +131,16 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		return false;
+		boolean isFound = false;
+		
+		for (Integer number : integerList) {
+			if (number == intToFind) {
+				if (isFound) {
+					return true;
+				}
+			isFound = true; 
+			}
+		} return false;
 	}
 	
 	/*
@@ -141,7 +156,20 @@ public class Exercises {
 	 HINT: To convert an integer x to a string you can call x.toString() in your code (e.g. if x = 1 then x.ToString() equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<Integer> fizzList = new ArrayList<>();
+		
+		for (Integer number : integerArray) {
+			if (number % == 5 && number && == 3) {
+				fizzList.add("fizzBuzzList");
+		}	else if (number % 5 == 0) {
+			theList.add("Buzz");
+			else if (number %3 == 0) {
+				theList.add("Fizz");
+				
+			}
+		}
+		else ()
+		return fizzList;
 	}
 
 	/*
@@ -151,7 +179,15 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
-		return null;
+		Set<String> set = new HashSet<String>();
+		List<String> newStringList = new ArrayList<String>();
+		
+		
+		set.addAll(stringList);
+		newStringList.addAll(set);
+		
+		return newStringList;
+			  
 	}
 
 	/*
@@ -162,6 +198,7 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+		ArrayList<String> list1 = new ArrayList<String>();
 		return null;
 	}
 

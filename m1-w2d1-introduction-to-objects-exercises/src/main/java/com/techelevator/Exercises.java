@@ -369,10 +369,11 @@ public class Exercises {
 	public int last2(String str) {
 		int length = str.length() - 2;
 		
-		if (str.length() < 2) return 0;
+		if (str.length() < 2) 
+			return 0;
 		  int counter = 0;
 		  String end = str.substring(length);
-		  for (int i = 0; i < str.length() - 1; i++) {
+		  for (int i = 0; i < str.length() - 2; i++) {
 		    if(str.substring(i, i + 2).equals(end)) { 
 		      counter++;
 		    }
