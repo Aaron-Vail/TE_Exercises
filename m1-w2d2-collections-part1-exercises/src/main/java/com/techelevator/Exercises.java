@@ -22,7 +22,13 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"] 
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		
+		List<String> list = new ArrayList<String>();
+	    for (int i = 0; i < stringArray.length; i++) {
+	        list.add(i, stringArray[i]);
+	    }
+
+	    return list;
 	}
 	
 	/*
@@ -32,8 +38,14 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
-	}
+		String[] fruits = new String[stringList.size()];
+		
+		for (int i = 0; i < stringList.size(); i++) {
+			String temp=stringList.get(i);
+			fruits[i] = temp;
+		}
+		return fruits;
+	}	
 	
 	/*
 	 Given an array of Strings, return an ArrayList containing the same Strings in the same order 
@@ -43,10 +55,14 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> triple = new ArrayList<String>();
+	    for (int i = 0; i < stringArray.length; i++) {
+	    	if (stringArray[i].length() != 4) {
+	    	triple.add(stringArray[i]);
+	    	}
+	    }
+	    return triple;
 	}
-
-
 	/*
 	 Given a List of Strings, return a new list in reverse order of the original. One obvious solution is to
 	 simply loop through the original list in reverse order, but see if you can come up with an alternative
@@ -56,7 +72,14 @@ public class Exercises {
 		-> ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
 	 */
 	public List<String> reverseList(List<String> stringList) {
-		return null;
+		List<String> reversed = new ArrayList<String>();
+			Stack<String> heap =  new Stack<String>();
+			heap.addAll(stringList);
+			
+			while ( ! heap.isEmpty()) {
+			reversed.add(heap.pop());
+			}
+		return reversed;
 	}
 
 	/*
@@ -66,7 +89,11 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		ArrayList<Double> list = new ArrayList<Double>();
+	    for (int i = 0; i < intArray.length; i++) {
+	        list.add(i, ((double) intArray[i]) / 2);
+	    }
+		return list;
 	}
 	
 	/*
@@ -76,8 +103,8 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
-	}
+		return Collections.max(integerList);
+	}	
 	
 	/*
 	 Given an array of Integers, return a List of Integers containing just the odd values.
@@ -86,7 +113,8 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		return (oddOnly(integerArray));
+		
 	}
 	
 	/* 

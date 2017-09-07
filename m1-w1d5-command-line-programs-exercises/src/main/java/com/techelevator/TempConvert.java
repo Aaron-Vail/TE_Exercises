@@ -36,8 +36,8 @@ public class TempConvert {
 		System.out.print("Please enter a temperature to convert");
 		
 		temperatureInput = input.nextDouble();
-	
-		System.out.print("Is temperature in (C)elsius or (F)arenheit ?");
+//*****-----(c) and (f) are enclosed in parentheses to remind user to use "c" or "f" to designate temperature scale-----******	
+		System.out.print("Is temperature in (c)elsius or (f)arenheit ?");
 		
 //*****-----STRING CONVERSION SECTION-----******		
 		String typeOfTemperature = input.nextLine();
@@ -51,10 +51,10 @@ public class TempConvert {
 		
 		if(typeOfTemperature.equals("c")) {
 			double tempConversion = (temperatureInput - 32) / 1.8;
-			return tempConversion;
+			System.out.println(temperatureInput + "c is " + tempConversion + " F");
 		} else {
 			double tempConversion = (temperatureInput * 1.8) + 32;
-			return tempConversion;
+			System.out.println(temperatureInput + "c is " + tempConversion + " C");
 		}
 	}
 }
