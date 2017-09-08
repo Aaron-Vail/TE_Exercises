@@ -226,8 +226,20 @@ public class Exercises {
 	 * 
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
-	}
+		Map<Integer, Integer> numberCount = new HashMap<>(); 
+		
+		for(Integer number : ints) {						
+			if(numberCount.containsKey(number)) {  
+				int currentNumber = numberCount.get(number);
+				currentNumber++;
+				numberCount.put(number, currentNumber);
+				
+			} else {
+				numberCount.put(number,  1);
+				}
+			}
+			return numberCount;
+		}
 	
 	/*
 	 * Given an array of strings, return a Map<String, Boolean> where each different string is a key and value
@@ -239,7 +251,11 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		
+		Map<String, Boolean> different = new HashMap<>();
+		
+		
+		return different;
 	}
 	
 	/*
