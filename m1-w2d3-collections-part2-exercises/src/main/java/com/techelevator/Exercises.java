@@ -252,10 +252,19 @@ public class Exercises {
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
 		
-		Map<String, Boolean> different = new HashMap<>();
+		Map<String, Boolean> newComboMap = new HashMap<>();
 		
+		for(String element : words) {	
+			if (newComboMap.containsKey(element)) {  
+			      newComboMap.put(element, true);
+			    
+			} else {
+			      newComboMap.put(element, false);
+			      
+			    }
+			}
 		
-		return different;
+		return newComboMap;
 	}
 	
 	/*
