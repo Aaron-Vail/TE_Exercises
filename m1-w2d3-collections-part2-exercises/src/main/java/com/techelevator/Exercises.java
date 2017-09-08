@@ -109,20 +109,30 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
+		
 		// Figure out Peters money 
+		
 		int petersMoney = peterPaul.get("Peter");
+		
 		// Figure out Pauls money
+		
 		int paulsMoney = peterPaul.get("Paul");
+		
 		//if Paul has less than 1000 and Peter has more than 0
+		
 		if(paulsMoney < 1000 && petersMoney > 0) {
-		//Take half of Peter's money and give to Paul
-			int stolenMoney = petersMoney / 2;
-			paulsMoney += stolenMoney;
-			petersMoney -= stolenMoney;
 			
-			peterPaul.put("Paul", paulsMoney);
-			peterPaul.put("Peter", petersMoney);
+		//Take half of Peter's money and give to Paul
+			
+			int stolenMoney = petersMoney / 2;
+			
+//			paulsMoney += stolenMoney;
+//			petersMoney -= stolenMoney;
+			
+			peterPaul.put("Paul", paulsMoney + stolenMoney);
+			peterPaul.put("Peter", petersMoney - stolenMoney);
 			}
+		
 		return peterPaul;
 		
 	}
@@ -137,7 +147,21 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+			//initialize peter, paul, and partnership
+		int peterMoney = peterPaul.get("Peter");
+		int paulMoney = peterPaul.get("Paul");
+		
+			//remove partnership money from both peter and paul and put into partnership fund
+		if (peterMoney >= 5000 && paulMoney >= 10000) {
+			int peterContributed = peterMoney / 4;
+			int paulContributed = paulMoney / 4;
+			int combined = peterContributed + paulContributed;
+			
+			peterPaul.put("Peter", peterMoney - peterContributed);
+			peterPaul.put("Paul", paulMoney - paulContributed);
+			peterPaul.put("PeterPaulPartnership", combined);
+		}
+		return peterPaul;
 	}
 	
 	/*
@@ -149,7 +173,20 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		
+		Map<String, String> mapHolder = new HashMap<>();
+		
+		String firstLetter = "";
+		String lastLetter = "";
+		
+		for (String element : words) {
+			firstLetter = element.substring(0, 1);
+			lastLetter = element.substring(element.length() - 1);
+			
+			mapHolder.put(firstLetter, lastLetter);
+			
+		}
+		return mapHolder;
 	}
 	
 	/*
@@ -216,7 +253,29 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse, Map<String, Integer> remoteWarehouse) {
-		return null;
+	//use entry and entry set in for each loops
+		//Create new map
+		Map<String, Integer> comboMap = new HashMap<>();
+		//for each loop of the main warehouse
+		for (Entry<String, Integer> element1 : mainWarehouse.entrySet()) {
+			// for each loop remote warehouse
+			for (Entry<String, Integer> element2 : remoteWarehouse.entrySet()) {
+				//if statement "key of element1 == key of element2" 
+				if (element1.getKey() ==  element2.getKey()) {
+					//push the key of element one to new map && push the sum of element1 and element 2
+					comboMap.put(element1.getKey(), (element1.getValue() + element2.getValue()));
+				}
+				else {
+					comboMap.put(element1.getKey(), element1.getValue());
+					comboMap.put(element2.getKey(), element2.getValue());
+				}
+						
+					
+			}
+		}
+	
+		//return new map
+		return comboMap;
 	}
 
 	/*
@@ -235,6 +294,32 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> last2Revisted(String[] words) {
-		return null;
+		Map<String, Integer> mapHolder = new HashMap<>();  
+		
+		for(String str : words) {
+			
+			int length = str.length() - 2;
+			int counter = 0;
+			
+			if (str.length() < 2) 
+				counter = 0;
+			
+				String end = str.substring(length);
+			for (int i = 0; i < str.length() - 2; i++) {
+				if(str.substring(i, i + 2).equals(end)) { 
+					counter++;
+				}
+			}
+			 mapHolder.put(str, counter);
+		}
+		return mapHolder;
 	}
+	
+	
+	
+	
 }
+	
+	
+
+
