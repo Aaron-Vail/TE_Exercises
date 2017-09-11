@@ -156,20 +156,18 @@ public class Exercises {
 	 HINT: To convert an integer x to a string you can call x.toString() in your code (e.g. if x = 1 then x.ToString() equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		List<Integer> fizzList = new ArrayList<>();
-		
-		for (Integer number : integerArray) {
-			if (number % == 5 && number && == 3) {
-				fizzList.add("fizzBuzzList");
-		}	else if (number % 5 == 0) {
-			theList.add("Buzz");
-			else if (number %3 == 0) {
-				theList.add("Fizz");
-				
-			}
+		List<String> holderList = new ArrayList<>();
+		for (Integer element : integerArray) {
+			if (element % 3 == 0 && element % 5 == 0) {
+				holderList.add ("FizzBuzz");
+			} else if (element % 3 == 0) {
+				holderList.add("Fizz");
+			} else if (element % 5 == 0) {
+				holderList.add("Buzz");
+			} else holderList.add(element.toString());
+			
 		}
-		else ()
-		return fizzList;
+		return holderList;
 	}
 
 	/*

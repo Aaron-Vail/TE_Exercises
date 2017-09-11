@@ -25,6 +25,13 @@ public class Exercises {
 	 arrayFront9([1, 2, 3, 4, 5]) → false
 	 */
 	public boolean arrayFront9(int[] nums) {
+		int length = nums.length;
+		if (length > 4) 
+			length = 4;
+		for (int i = 0; i < length; i++) {
+			if (nums[i] == 9) 
+					return true;
+		}
 		return false;
 	}
 
@@ -35,6 +42,12 @@ public class Exercises {
 	 array123([1, 1, 2, 1, 2, 3]) → true
 	 */
 	public boolean array123(int[] nums) {
+		boolean booHolder = true;
+		for (int i = 0; i < nums.length - 2; i++) {
+			if (nums[i] == 1 && nums[i + 1] == 2 && nums[i+2] == 3) {
+				return booHolder;
+			}
+		}
 		return false;
 	}
 	
@@ -46,7 +59,14 @@ public class Exercises {
 	 noTriples([1, 1, 1, 2, 2, 2, 1]) → false
 	 */
 	public boolean noTriples(int[] nums) {
-		return false;
+		
+		for (int i = 0; i < nums.length - 2; i++) {
+			if (nums[i] == nums[i+1] && nums [i] == nums [i+2]) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	/*
@@ -57,7 +77,10 @@ public class Exercises {
 	 makeEnds([7, 4, 6, 2]) → [7, 2]
 	 */
 	public int[] makeEnds(int[] nums) {
-		return new int[]{};
+		int[] intHolder = new int[2];
+		intHolder[0] = nums[0];
+		intHolder[1] = nums[nums.length -1];
+		return intHolder;
 	}
 
 	/*
@@ -67,7 +90,15 @@ public class Exercises {
 	 has23([4, 5]) → false
 	 */
 	public boolean has23(int[] nums) {
-		return false;
+		boolean booHolder = false;
+		
+		for (int element : nums) {
+			if (element == 2 || element == 3) {
+				booHolder = true;
+			}
+		}
+		
+		return booHolder;
 	}
 
 	/*
@@ -77,7 +108,13 @@ public class Exercises {
 	 no23([3, 5]) → false
 	 */
 	public boolean no23(int[] nums) {
-		return false;
+		boolean booHolder = true;
+		for (int element : nums) {
+			if(element == 2 || element == 3) {
+				booHolder = false;
+			}
+		}
+		return booHolder;
 	}
 
 	/*
@@ -89,7 +126,9 @@ public class Exercises {
 	 makeLast([3]) → [0, 3]
 	 */
 	public int[] makeLast(int[] nums) {
-		return new int[]{};
+		int[] intHolder = new int[nums.length * 2];
+		intHolder[intHolder.length -1] = nums[nums.length -1];
+		return intHolder;
 	}
 
 	/*
@@ -99,7 +138,17 @@ public class Exercises {
 	 double23([2, 3]) → false
 	 */
 	public boolean double23(int[] nums) {
-		return false;
+		int counter2 = 0;
+		int counter3 = 0;
+		
+		for (int element : nums) {
+			if(element == 2) {
+				counter2++;
+			} else if(element == 3) {
+				counter3++;
+			}
+		}
+		return (counter2 == 2 || counter3 == 2);
 	}
 
 	/*
@@ -110,7 +159,12 @@ public class Exercises {
 	 fix23([1, 2, 1]) → [1, 2, 1]
 	 */
 	public int[] fix23(int[] nums) {
-		return new int[]{};
+		for(int i = 0; i < nums.length-1; i++) {
+			if (nums[i] == 2 && nums[i+1] ==3) {
+				nums[i+1] = 0;
+			}
+		}
+		return nums;
 	}
 
 	/*
@@ -120,7 +174,15 @@ public class Exercises {
 	 start1([1, 2], []) → 1
 	 */
 	public int start1(int[] a, int[] b) {
-		return 0;
+		int counter = 0;
+		
+		if (a.length >= 1 && a[0] == 1) {
+			counter ++;
+		}
+		if (b.length >= 1 && b[0] == 1) {
+			counter ++;
+		}
+		return counter;
 	}
 
 	/*
@@ -131,7 +193,11 @@ public class Exercises {
 	 biggerTwo([1, 1], [1, 2]) → [1, 2]
 	 */
 	public int[] biggerTwo(int[] a, int[] b) {
-		return new int[]{};
+		int sum = a[0] + a[1] - b[0] - b[1];
+		if (sum >= 0) {
+			return a;
+		}
+		return b;
 	}
 	
 	/*
@@ -142,7 +208,10 @@ public class Exercises {
 	 makeMiddle([1, 2]) → [1, 2]
 	 */
 	public int[] makeMiddle(int[] nums) {
-		return new int[]{};
+		int[] arrayHolder = new int[2];
+		arrayHolder[0] = nums[(nums.length / 2) -1];
+		arrayHolder[1] = nums[nums.length / 2];
+		return arrayHolder;
 	}
 
 	/*
@@ -152,7 +221,15 @@ public class Exercises {
 	 plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]
 	 */
 	public int[] plusTwo(int[] a, int[] b) {
-		return new int[]{};
+		int[] arrayHolder = new int[4];
+		arrayHolder[0] = a[0];
+		arrayHolder[1] = a[1];
+		arrayHolder[2] = b[0];
+		arrayHolder[3] = b[1];
+		
+		
+		
+		return arrayHolder;
 	}
 
 	/*
@@ -162,8 +239,14 @@ public class Exercises {
 	 swapEnds([1, 2, 3]) → [3, 2, 1]
 	 swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
 	 */
-	public int[] swapEnds(int[] nums) {
-		return new int[]{};
+	public int[] swapEnds(int[] nums) { 
+		int first = nums[0];
+		int last = nums[nums.length -1];
+		
+			nums[0] = last;
+			nums[nums.length -1] = first;
+			return nums;
+	
 	}
 
 	/*
@@ -173,7 +256,18 @@ public class Exercises {
 	 more14([1, 1]) → true
 	 */
 	public boolean more14(int[] nums) {
-		return false;
+		int counter1 = 0;
+		int counter4 = 0;
+		
+		for(int element : nums) {
+			if (element == 1) {
+				counter1 ++;
+			} else if (element ==4) {
+				counter4 ++;
+			}
+		
+		}
+		return (counter1 > counter4);
 	}
 
 	/*
@@ -186,6 +280,16 @@ public class Exercises {
 	 fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 	 */
 	public int[] fizzArray(int n) {
+		Int[] intHolder = new Int[];
+		
+		for(int i = 0; i < n; i++) {
+			if (element == 0) {
+				n += intHolder[0];
+			}
+		}
+		
+		
+		
 		return new int[]{};
 	}
 
