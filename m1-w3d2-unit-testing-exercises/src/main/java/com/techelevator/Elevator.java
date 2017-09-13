@@ -107,13 +107,16 @@ public class Elevator {
      */
     public boolean GoDown(int desiredFloor)
     {
+    	currentLevel = desiredFloor;
+    	
         if (!doorOpen && desiredFloor < currentLevel && desiredFloor > 0)
         {
-            currentLevel -= desiredFloor;
             return true;
         }
+        else
+        {
+        	return false;
+        }
 
-        return false;
     }
-
 }
