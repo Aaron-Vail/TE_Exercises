@@ -280,17 +280,12 @@ public class Exercises {
 	 fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 	 */
 	public int[] fizzArray(int n) {
-		Int[] intHolder = new Int[];
+		int[] intHolder = new int[n];
 		
-		for(int i = 0; i < n; i++) {
-			if (element == 0) {
-				n += intHolder[0];
-			}
+		for (int i = 0; i < n; i++) {
+			intHolder[i] = i;
 		}
-		
-		
-		
-		return new int[]{};
+		return intHolder;
 	}
 
 	/*
@@ -300,7 +295,12 @@ public class Exercises {
 	 only14([1, 1]) → true
 	 */
 	public boolean only14(int[] nums) {
-		return false;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] != 1 && nums[i] != 4) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	/*
@@ -310,7 +310,14 @@ public class Exercises {
 	 no14([2, 3, 4]) → true
 	 */
 	public boolean no14(int[] nums) {
-		return false;
+		boolean one = false;
+		boolean four = false;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1) {
+				one = true;
+			} else if () {
+		}
+		return one || four;
 	}
 
 	/*
