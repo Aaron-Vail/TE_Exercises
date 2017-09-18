@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Arrays;
+
 public class Exercises {
 
 	/*
@@ -262,7 +264,7 @@ public class Exercises {
 		for(int element : nums) {
 			if (element == 1) {
 				counter1 ++;
-			} else if (element ==4) {
+			} else if (element == 4) {
 				counter4 ++;
 			}
 		
@@ -310,12 +312,14 @@ public class Exercises {
 	 no14([2, 3, 4]) → true
 	 */
 	public boolean no14(int[] nums) {
-		boolean one = false;
-		boolean four = false;
+		boolean one = true;
+		boolean four = true;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] == 1) {
-				one = true;
-			} else if () {
+				one = false;
+			} else if (nums [i] == 4)  {
+				four = false;
+			}
 		}
 		return one || four;
 	}
@@ -327,6 +331,16 @@ public class Exercises {
 	 has12([3, 1, 4, 5, 2]) → true
 	 */
 	public boolean has12(int[] nums) {
+		
+		boolean booHolder = false;
+		
+		for (int i = 0; i < nums.length; i++) {
+			if (booHolder) {
+				if (nums[i] == 2)
+					return true;
+				} else if(nums[i] == 1)
+				booHolder = true;
+		}
 		return false;
 	}
 
@@ -339,7 +353,12 @@ public class Exercises {
 	 fizzArray3(1, 3) → [1, 2]
 	 */
 	public int[] fizzArray3(int start, int end) {
-		return new int[]{};
+		int holder = end - start;
+		int[] result = new int[holder];
+		     for (int i = 0; i < holder; i++) {
+		    	 result[i] = start++;
+		     }
+		     return result;
 	}
 
 	/*
@@ -349,7 +368,7 @@ public class Exercises {
 	 lessBy10(11, 1, 7) → true
 	 */
 	public boolean lessBy10(int a, int b, int c) {
-		return false;
+		return (Math.abs(a - b) >= 10 || Math.abs(b - c) >= 10 || Math.abs(c - a) >= 10);
 	}
 
 	/*
@@ -361,6 +380,13 @@ public class Exercises {
 	 greenTicket(1, 1, 2) → 10
 	 */
 	public int greenTicket(int a, int b, int c) {
+		if (a == b) {
+			if (b == c)
+				return 20;
+			return 10;
+		}
+		if (a == c || b == c)
+			return 10;
 		return 0;
 	}
 	
@@ -372,7 +398,13 @@ public class Exercises {
 	 blackjack(19, 22) → 19
 	 */
 	public int blackjack(int a, int b) {
-		return 0;
+		if(a > 21) {
+			if(b > 21)
+				return 0;
+			return b;
+		} if(a < b && b <= 21)
+			return b;
+		return a;
 	}
 
 	/*
@@ -383,7 +415,33 @@ public class Exercises {
 	 evenlySpaced(4, 6, 3) → false
 	 */
 	public boolean evenlySpaced(int a, int b, int c) {
-		return false;
-	}
-
-}
+		int[] holder = new int[]{a, b, c};
+		Arrays.sort(holder);
+		return (holder[1] - holder[0] == holder[2] - holder[1]);
+	}			
+}	
+	
+	
+	
+	
+	
+	
+//		int holder;
+//		
+//		if(b > a) {
+//			holder = a;
+//			a = b;
+//			b = holder;
+//		}
+//		if(c > b) {
+//			holder = b;
+//			b = c;
+//			c = holder;
+//		}
+//		if(b > a) {
+//			holder = a;
+//			a = b;
+//			b = holder;
+//		} return(a - b == b - c);
+//	}
+//}
