@@ -2,7 +2,7 @@ package com.techelevator;
 
 public class KataFizzBuzz {
 	
-	public static Object fizzBuzz(int n) {
+	public static String fizzBuzz(int n) {
 		
 		if (n == 0)
 			return "0";

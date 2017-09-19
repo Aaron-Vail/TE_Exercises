@@ -5,14 +5,6 @@ import static org.junit.Assert.*;
 
 public class KataFizzBuzzTest {
 	
-	KataFizzBuzz sut;
-	
-//	@Before
-//	public void setup () {
-//		int result = sut.add("");
-//		sut = new KataFizzBuzz();
-//		
-//	}
 	@Test
     public void testZero() {
         assertEquals(KataFizzBuzz.fizzBuzz(0), "0");
