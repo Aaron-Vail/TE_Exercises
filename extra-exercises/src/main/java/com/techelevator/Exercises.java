@@ -12,7 +12,11 @@ public class Exercises {
     arrayDeduplication([1, 1, 1]) → [1]
     */
     public int[] arrayDeduplication(int[] nums) {
-        return null;
+    	int[] arrayDup = new int[nums.length];
+    		for(int i = 0; i<nums.length; i++) {
+    			arrayDup[i] = nums[i];
+    		}
+    		return arrayDup;
     }
     
     /*
@@ -24,7 +28,13 @@ public class Exercises {
         arrayIntersection([], []) → []
     */
     public int[] arrayIntersection(int[] a, int[] b) {
-        return null;
+    	int[] intHolder = new int[a.length];
+    	for(int i = 0; i < a.length; i++) {
+    		if(a[i] == b[i]) {
+    			a[i] = intHolder[i];
+    		}
+    	}
+        return intHolder;
     }
     
     /*
