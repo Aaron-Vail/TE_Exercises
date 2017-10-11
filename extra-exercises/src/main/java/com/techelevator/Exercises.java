@@ -11,14 +11,28 @@ public class Exercises {
     arrayDeduplication([]) → []        
     arrayDeduplication([1, 1, 1]) → [1]
     */
-    public int[] arrayDeduplication(int[] nums) {
-    	int[] arrayDup = new int[nums.length];
-    		for(int i = 0; i<nums.length; i++) {
-    			arrayDup[i] = nums[i];
-    		}
-    		return arrayDup;
-    }
-    
+	public int[] arrayDeduplication(int[] nums) {
+		int end = nums.length;
+
+	    for (int i = 0; i < end; i++) {
+	        for (int j = i + 1; j < end; j++) {
+	            if (nums[i] == nums[j]) {                  
+	                int shiftLeft = j;
+	                for (int k = j+1; k < end; k++, shiftLeft++) {
+	                    nums[shiftLeft] = nums[k];
+	                }
+	                end--;
+	                j--;
+	            }
+	        }
+	    }
+
+	    int[] whitelist = new int[end];
+	    for(int i = 0; i < end; i++){
+	        whitelist[i] = nums[i];
+	    }
+	    return whitelist;
+	}
     /*
     CHALLENGE: Using array A and array B, return an array that is the intersection of both A and B.
     The intersection includes numbers that appear in both arrays.
@@ -33,8 +47,12 @@ public class Exercises {
     		if(a[i] == b[i]) {
     			a[i] = intHolder[i];
     		}
+    	}for(int i = 0; i < b.length; i++) {
+    		if(b[i] == a[i]) {
+    			b[i] = intHolder[i];
+    		}
     	}
-        return intHolder;
+    	return intHolder;
     }
     
     /*

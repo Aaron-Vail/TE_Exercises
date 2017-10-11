@@ -1,3 +1,8 @@
+INSERT INTO project_employee (project_id, employee_id) VALUES (1, 3);
+
+
+
+
 -- Write queries to return the following:
 -- The following changes are applied to the "pagila" database.**
 
