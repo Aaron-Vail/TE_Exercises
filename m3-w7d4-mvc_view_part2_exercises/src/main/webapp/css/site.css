@@ -56,3 +56,28 @@ section {
 	background-color: #FFF;
 	border-radius: 7px;
 }
+#fullProduct {
+	display: flex;
+	flex-direction: raw;
+}
+
+#productImage > img {
+	width: 250px;
+	margin: 10px 35px 10px 50px;
+}
+
+#productDetails {
+	text-align: left;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.stars {
+	width: 15%;
+	height: 15%;
+}
+
+#redText {
+	color: #d11917;
+}
+
