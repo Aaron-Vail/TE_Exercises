@@ -1,27 +1,49 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="pageTitle" value="Product Table"/>
+<%@ include file = "common/header.jspf" %>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Product Table View</title>
-    <link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-        </ul>
-        
-    </nav>
-    <section id="main-content">
-
-       
+    <section id="productTable">
+    	<tr>
+				<th>&nbsp;</th>
+				<c:forEach items="${products}" var="product">
+					<c:url var="imgRef" value="/productDetails?productId=${product.productId}" />
+					<td><a href=${imgRef}><img src="img/product${product.productId}.jpg" class="productImage"/></a></td>
+				</c:forEach>
+			</tr>
+			<tr class="greyed">
+				<th>Name</th>
+				<c:forEach items="${products}" var="product">
+					<td class="productFont"><a href=${imgRef}><c:out value="${product.name}"/></a></td>
+				</c:forEach>
+			</tr>
+			<tr>
+				<th>Rating</th>
+				<c:forEach items="${products}" var="product">
+					<td>
+						<fmt:formatNumber maxFractionDigits="0" value="${recipe.averageRating}" var="formattedRating"/>
+						<img src="img/${formattedRating}-star.png" class="stars"/>
+					</td>
+				</c:forEach>
+			</tr>
+			<tr class="greyed">
+				<th>Manufacturer</th>
+				<c:forEach items="${products}" var="product">
+					<td><c:out value="${product.manufacturer}"/></td>
+				</c:forEach>
+			</tr>
+			<tr>
+				<th>Price</th>
+				<c:forEach items="${products}" var="product">
+					<td><c:out value="${product.price}"/> min</td>
+				</c:forEach>
+			</tr>
+			<tr class="greyed">
+				<th>Weight</th>
+				<c:forEach items="${products}" var="product">
+					<td><c:out value="${product.weightInPounds}"/> lbs</td>
+				</c:forEach>
+			</tr>
+			
 
     </section>
 </body>

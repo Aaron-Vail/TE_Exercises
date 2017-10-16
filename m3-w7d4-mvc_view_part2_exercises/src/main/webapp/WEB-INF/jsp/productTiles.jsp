@@ -1,28 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="pageTitle" value="Product Table"/>
+<%@ include file = "common/header.jspf" %>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Product Tiles View</title>
-    <link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-        </ul>
-        
-    </nav>
     <section id="main-content">
 
+		<h1>Recipes</h1>
+			<c:forEach var="product" items="${products}">
+				<div class="block">
+					<c:url var="imgRef" value="/productDetails?productId=${product.productId}" />
+					<a href=${imgRef}><img src="img/product${product.productId}.jpg"
+						class="photos" /></a> <a href=${imgRef}><p class="product-name">${product.name}</p></a>
+					<p class="manufacturer">${product.manufacturer}manufacturer</p>
+					<p class="rating">
+						<fmt:formatNumber maxFractionDigits="0"
+							value="${product.averageRating}" var="formattedRating" />
+						<img src="img/${formattedRating}-star.png" class="rating" />
+					</p>
+				</div>
+			</c:forEach>
        
-
     </section>
 </body>
 </html>
