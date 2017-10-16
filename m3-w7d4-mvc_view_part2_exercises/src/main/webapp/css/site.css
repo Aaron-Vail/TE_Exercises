@@ -80,3 +80,46 @@ section {
 	color: #d11917;
 }
 
+.rating {
+	display: inline-block;
+	width: 100px;
+	text-align: left;
+	margin-left: 10px;
+	margin-right: 180px;
+}
+
+tr.greyed {
+	background-color: #dedce0;
+}
+tr.greyed > th {
+	background-color: white;
+}
+
+.block {
+	background-color: #B2E0B1;
+	display: inline-block;
+	margin: 30px 20px 10px 5px;	
+	width: 400px;
+	vertical-align: top;
+}
+
+#main-content {
+	margin: 2% 2% 2% 2%;
+}
+
+.container {
+	display: flex;
+	padding: 1px;
+}
+
+.display-image {
+	flex: 1;
+	display: inline;
+	padding: 10px;
+	
+}
+
+.top-two {
+	flex: 3;
+	display: inline;
+}

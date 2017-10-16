@@ -15,8 +15,7 @@
 			</div>
 
 			<div id="productDetails">
-				<strong></strong>
-				<c:out value="${product.name}" />
+				<strong><c:out value="${product.name}" /></strong>
 				</strong></br> by
 				<c:out value="${product.manufacturer}" />
 				</br> <strong><span id="redText">$<c:out
