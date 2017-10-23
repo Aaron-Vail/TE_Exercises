@@ -1,4 +1,4 @@
-package com.techelevator.model;
+package com.techelevator.ssg.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +21,12 @@ public class JdbcReviewDao implements ReviewDao {
 	}
 
 	@Override
-	public List<Review> getAllReviews() {
-		List<Review> allReviews = new ArrayList<>();
+	public List<SquirrelReview> getAllReviews() {
+		List<SquirrelReview> allReviews = new ArrayList<>();
 		String sqlSelectAllReviews = "SELECT * FROM reviews";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllReviews);
 		while(results.next()) {
-			Review review = new Review();
+			SquirrelReview review = new SquirrelReview();
 			review.setId(results.getLong("review_id"));
 			review.setUsername(results.getString("username"));
 			review.setRating(results.getInt("rating"));
@@ -39,10 +39,23 @@ public class JdbcReviewDao implements ReviewDao {
 	}
 
 	@Override
-	public void save(Review review) {
-		String sqlInsertReview = "INSERT INTO reviews(username, rating, review_title, review_text, review_date) VALUES (?,?,?,?,?) RETURNING review_id";
-		Long id = jdbcTemplate.queryForObject(sqlInsertReview, Long.class, review.getUsername(), review.getRating(), review.getTitle(), review.getText(), review.getDateSubmitted());
+	public void save(SquirrelReview review) {
+		Long id = getNextId();
+		String sqlInsertReview = "INSERT INTO reviews(review_id, username, rating, review_title, review_text, review_date) VALUES (?,?,?,?,?,?)";
+		jdbcTemplate.update(sqlInsertReview, id, review.getUsername(), review.getRating(), review.getTitle(), review.getText(), review.getDateSubmitted());
 		review.setId(id);
+	}
+
+	private Long getNextId() {
+		String sqlSelectNextId = "SELECT NEXTVAL('seq_review_id')";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectNextId);
+		Long id = null;
+		if(results.next()) {
+			id = results.getLong(1);
+		} else {
+			throw new RuntimeException("Error selecting last id");
+		}
+		return id;
 	}
 
 }

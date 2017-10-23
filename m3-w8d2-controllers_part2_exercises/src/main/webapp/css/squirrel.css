@@ -1,0 +1,82 @@
+.header  {
+	position: fixed;
+	background-color: #FFEB00;
+	height: 82px;
+	width: 100%;
+	z-index: 1;
+}
+
+.header img {
+	width: 200px;
+	padding: 20px;
+}
+
+.footer {
+	background-color: #2D2D2B;
+	height: 82px;
+	width: 100%;
+}
+
+.footer img {
+	width: 200px;
+	float: right;
+	padding: 20px;
+	filter: invert(50%);
+}
+
+.container {
+	padding-top: 90px;
+	padding-bottom: 8px;
+}
+
+.container .btn {
+	background-color: #FFEB00;
+	display: block;
+	margin: 0 auto 1rem auto;
+	width: fit-content;
+	color: #000;
+	cursor: pointer;
+}
+
+.container .review-row, .container form {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.container .book {
+	margin: 0 auto;
+	display: block;
+	max-width: 100%;
+}
+
+.container .blockquote {
+	font-style: italic;
+}
+
+.container .avatar {
+	display: inline;
+	border-radius: 100%;
+	margin-right: 10px;
+}
+
+.container .review-title {
+	display: inline;
+}
+
+.container .date {
+	display: inline;
+	font-style: italic;
+	font-size: smaller;
+}
+
+.container .star {
+	margin: 1rem 0;
+}
+
+.container .form-check {
+	margin-left: 2rem;
+}
+
+.container form .star-small {
+	width: 20px;
+}

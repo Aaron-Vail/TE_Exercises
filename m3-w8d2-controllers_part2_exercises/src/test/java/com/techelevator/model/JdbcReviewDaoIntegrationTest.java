@@ -15,8 +15,8 @@ import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.techelevator.DAOIntegrationTest;
-import com.techelevator.model.JdbcReviewDao;
-import com.techelevator.model.Review;
+import com.techelevator.ssg.model.JdbcReviewDao;
+import com.techelevator.ssg.model.SquirrelReview;
 
 public class JdbcReviewDaoIntegrationTest extends DAOIntegrationTest {
 
@@ -35,27 +35,27 @@ public class JdbcReviewDaoIntegrationTest extends DAOIntegrationTest {
 	
 	@Test
 	public void saved_reviews_are_returned_in_list_of_all_reviews() {
-		Review review1 = createReview("Good Cop", 5, "Good Cop's review", "Loved it.");
-		Review review2 = createReview("Bad Cop", 1, "Bad Cop's review", "Hated it.");
+		SquirrelReview review1 = createReview("Good Cop", 5, "Good Cop's review", "Loved it.");
+		SquirrelReview review2 = createReview("Bad Cop", 1, "Bad Cop's review", "Hated it.");
 		
 		dao.save(review1);
 		dao.save(review2);
 		
-		List<Review> results = dao.getAllReviews();
+		List<SquirrelReview> results = dao.getAllReviews();
 
 		assertThat(results, hasItem(equalTo(review1)));
 		assertThat(results, hasItem(equalTo(review2)));
 		assertThat(results.size(), CoreMatchers.equalTo(2));
 	}
 	
-	private Matcher<Review> equalTo(final Review expected) {
-		return new TypeSafeMatcher<Review>() {
+	private Matcher<SquirrelReview> equalTo(final SquirrelReview expected) {
+		return new TypeSafeMatcher<SquirrelReview>() {
 
 			public void describeTo(Description desc) {
 				
 			}
 
-			protected boolean matchesSafely(Review review) {
+			protected boolean matchesSafely(SquirrelReview review) {
 				return nullOrEqual(expected.getId(), review.getId()) &&
 						nullOrEqual(expected.getUsername(), review.getUsername()) &&
 						nullOrEqual(expected.getRating(), review.getRating()) &&
@@ -71,8 +71,8 @@ public class JdbcReviewDaoIntegrationTest extends DAOIntegrationTest {
 		};
 	}
 
-	private Review createReview(String username, int rating, String title, String text) {
-		Review review = new Review();
+	private SquirrelReview createReview(String username, int rating, String title, String text) {
+		SquirrelReview review = new SquirrelReview();
 		review.setUsername(username);
 		review.setRating(rating);
 		review.setTitle(title);

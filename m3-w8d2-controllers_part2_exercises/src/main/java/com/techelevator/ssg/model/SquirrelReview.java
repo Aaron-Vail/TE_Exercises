@@ -1,8 +1,8 @@
-package com.techelevator.model;
+package com.techelevator.ssg.model;
 
 import java.time.LocalDateTime;
 
-public class Review {
+public class SquirrelReview {
 	private Long id;
 	private String username;
 	private int rating;
@@ -45,5 +45,9 @@ public class Review {
 	}
 	public void setDateSubmitted(LocalDateTime dateSubmitted) {
 		this.dateSubmitted = dateSubmitted;
+	}
+	
+	public String getDateSubmittedAsString() {
+		return String.format("%tD", dateSubmitted);
 	}
 }
