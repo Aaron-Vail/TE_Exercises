@@ -1,0 +1,46 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>${param.pageTitle}</title>
+		<c:url var="stylesheetHref" value="/css/mvc.css" />
+  		<link rel="stylesheet" href="${stylesheetHref}">
+		<style>
+			.active {
+				font-weight: bold
+			}
+			.nav-link {
+				color: #fff;
+			}
+			.container-main {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+	
+	<c:url value="/ var="indexHref" />
+
+	<div>
+		<h1>Individual Exercises</h1>
+	</div>
+	
+	<nav>
+	<ul>
+			<c:url value="/orderedNameInput" var="orderedNameUrl"/>
+				<li><a href="${orderedNameUrl}">Ordered Name</a>
+			<c:url value="/colorizedNameInput" var="colorizedNameUrl"/>
+				<li><a href="${colorizedNameUrl}">Colorized Name</a>
+			<c:url value="/fizzBuzzInput" var="fizzBuzzUrl"/>
+				<li><a href="${fizzBuzzUrl}">FizzBuzz Revisited</a>
+			<c:url value="/lastTwoInput" var="lastTwoUrl"/>
+				<li><a href="${lastTwoUrl}">Last Two</a>
+			<c:url value="/babyLottoInput" var="babyLottoUrl"/>
+				<li><a href="${babyLottoUrl}">Baby Lotto</a>
+			<c:url value="/squirrelCigarInput" var="squirrelCigarUrl"/>
+				<li><a href="${squirrelCigarUrl}">Squirrel Cigar Party</a>
+	</ul>
+	</nav>
+	
+	<div class="container container-main">
