@@ -1,0 +1,36 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Food Bank</title>
+    <c:url value="/css/store.css" var="cssHref" />
+    <link rel="stylesheet" href="${cssHref}">
+</head>
+
+<body>
+	<div class="container-fluid">
+    <header>
+    		<div class= "row">
+    		 <div class="col-sm-12">Food Bank</div>
+    		<c:url value="/" var="homePageHref" />
+        	</div>
+    </header>
+    </div>
+    <nav>
+        <ul>
+        <c:url value="/productList?categoryId=1" var="dairyUrl"/>
+            <li><a href="${dairyUrl}">Dairy</a></li>
+        <c:url value="/productList?categoryId=3" var="vegetablesUrl"/>
+            <li><a href="${vegetablesUrl}">Vegetables</a></li>
+         <c:url value="/productList?categoryId=2" var="fruitUrl"/>   
+            <li><a href="${fruitUrl}">Fruit</a></li>    
+         <c:url value="/productList?categoryId=5" var="breadUrl"/>   
+            <li><a href="${breadUrl}">Bread</a></li>  
+         <c:url value="/productList?categoryId=4" var="otherUrl"/>   
+            <li><a href="${otherUrl}">Other Goods</a></li>  
+        </ul>
+    </nav>
