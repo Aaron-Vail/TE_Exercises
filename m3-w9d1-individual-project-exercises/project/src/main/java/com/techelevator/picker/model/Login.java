@@ -1,4 +1,4 @@
-package com.techelevator.validation.model;
+package com.techelevator.picker.model;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

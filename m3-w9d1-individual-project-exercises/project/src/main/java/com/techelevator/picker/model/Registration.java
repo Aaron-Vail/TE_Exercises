@@ -1,4 +1,4 @@
-package com.techelevator.validation.model;
+package com.techelevator.picker.model;
 
 import java.time.LocalDate;
 import java.util.Date;
