@@ -22,13 +22,13 @@ $(document).ready(function () {
 	});
 	
 	function updateGrandTotal() {
-		var subtotal = $('#subtotal span').text();
-		subtotal = parseFloat(subtotal.substring(1,subtotal.length));
-		var tax = $('#tax span').text();
-		tax = parseFloat(tax.substring(1,tax.length));
-		var shipping = $('#shipping span').text();
-		shipping = parseFloat(shipping.substring(1,shipping.length));
-		var grandtotal = subtotal+tax+shipping;
+		var subtotal = $('#subtotal span').text().replace("$","");
+		subtotal = parseFloat(subtotal);
+		var tax = $('#tax span').text().replace("$","");
+		tax = parseFloat(tax);
+		var shipping = $('#shipping span').text().replace("$","");
+		shipping = parseFloat(shipping);
+		var grandtotal = (subtotal+tax+shipping).toFixed(2);
 		$('#grandtotal span').text('$' + grandtotal);
 		
 	}

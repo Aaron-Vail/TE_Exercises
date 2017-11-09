@@ -18,10 +18,11 @@ public class ApiController {
 	 * asynchronous HTTP requests.
 	 */
 	@RequestMapping(path="/api/getTax", method=RequestMethod.GET)
-    public BigDecimal getTax(@RequestParam String billingZipCode, @RequestParam double subtotal) {
+    public String getTax(@RequestParam String billingZipCode, @RequestParam double subtotal) {
 		double taxRate = TaxCalculator.getTaxRate(billingZipCode);
 		BigDecimal taxTotal = new BigDecimal(subtotal * taxRate).setScale(2, BigDecimal.ROUND_HALF_DOWN);
-        return taxTotal;
+        return "{\"tax\": " + taxTotal+ "}";
+        
     }
 
 }

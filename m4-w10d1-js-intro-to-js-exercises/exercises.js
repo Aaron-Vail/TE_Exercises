@@ -27,8 +27,7 @@ function lastDigit(x, y) {
 
 
 function seeColor(str) {
-    let match = /^(red|blue).*$/.exec(str);
-    return match ? match[1] : "";
+    
 }
 
 
