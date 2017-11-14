@@ -29,8 +29,8 @@ public class JDBCMessageDAO implements MessageDAO {
 										 "FROM message "+
 										 "WHERE private = FALSE "+
 										 "ORDER BY create_date DESC "+
-										 "LIMIT "+limit;
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectPublicMessages);
+										 "LIMIT ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectPublicMessages, limit);
 		return mapRowSetToMessages(results);
 	}
 
@@ -47,7 +47,7 @@ public class JDBCMessageDAO implements MessageDAO {
 		String sqlSelectPublicMessagesByUser = "SELECT * "+
 											   "FROM message "+
 											   "WHERE private = FALSE "+
-											   "AND sender_name = '"+userName+"' "+
+											   "AND sender_name = ? "+
 											   "ORDER BY create_date DESC ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectPublicMessagesByUser);
 		return mapRowSetToMessages(results);
@@ -112,9 +112,9 @@ public class JDBCMessageDAO implements MessageDAO {
 	public List<Message> getMessagesSentByUser(String userName) {
 		String sqlSelectMessagesSentByUser = "SELECT * "+
 										     "FROM message "+
-										     "WHERE sender_name = '"+userName+"' "+
+										     "WHERE sender_name = ? "+
 										     "ORDER BY create_date DESC ";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectMessagesSentByUser);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectMessagesSentByUser, userName);
 		return mapRowSetToMessages(results);
 	}
 

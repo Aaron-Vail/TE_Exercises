@@ -10,14 +10,15 @@
 				<c:param name="userName" value="${message.fromUsername}" />
 			</c:url>
 			<span class="username"><a href="${messageHref}">${message.fromUsername}</a></span>
-			<span class="message-text">${message.text}</span>
+			<span class="message-text"><c:out value="${message.text}"/></span>
 			<time class="timeago" datetime="${message.createTime}">${message.createTime}</time>
 			
 			<c:url var="deleteMessage" value="/deleteMessage"></c:url>
 			<form action="${deleteMessage}" method="POST">
+				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 				<input type="hidden" name="id" value="${message.id}"/>
 				<input type="hidden" name="fromUsername" value="${message.fromUsername}"/>
-				<input type="submit" value="DELETE"/>
+				<input type="submit" class="btn btn-danger" value="DELETE"/>
 			</form>
 		</li>
 	</c:forEach>

@@ -33,6 +33,10 @@ header h1 {
 	border-right : 1px solid #c0c0c0;
 }
 
+.message form {
+	display: inline;
+}
+
 footer {
 	text-align : center;
 }

@@ -31,11 +31,12 @@ public class HomeController {
 	@RequestMapping(path="/deleteMessage", method=RequestMethod.POST)
 	public String deleteMessage(HttpServletRequest request, @RequestParam long id, @RequestParam String fromUsername){
 		String userName = (String) request.getSession().getAttribute("currentUser");
-		if(userName.equals(fromUsername)){
+		if(fromUsername.equals(userName)){
 		messageDAO.deleteMessage(id);
 		}
+	
+		    return "redirect:/";
+		    
+		}
 
-	    return "redirect:/";
-	    
-	}
 }
