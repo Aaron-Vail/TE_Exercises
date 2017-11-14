@@ -54,4 +54,5 @@ public class MessageController {
 		
 		return "redirect:/users/"+userName+"/messages";
 	}
+	
 }

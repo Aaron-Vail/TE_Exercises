@@ -2,10 +2,13 @@ package com.techelevator.critter.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.critter.model.MessageDAO;
 
@@ -23,5 +26,16 @@ public class HomeController {
 	public String showHomePage(Map<String, Object> model) {
 		model.put("messages", messageDAO.getPublicMessages(10));
 		return "home";
+	}
+	
+	@RequestMapping(path="/deleteMessage", method=RequestMethod.POST)
+	public String deleteMessage(HttpServletRequest request, @RequestParam long id, @RequestParam String fromUsername){
+		String userName = (String) request.getSession().getAttribute("currentUser");
+		if(userName.equals(fromUsername)){
+		messageDAO.deleteMessage(id);
+		}
+
+	    return "redirect:/";
+	    
 	}
 }

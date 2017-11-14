@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
@@ -141,6 +142,12 @@ public class JDBCMessageDAO implements MessageDAO {
 		result.next();
 		Long id = result.getLong(1);
 		return id;
+	}
+
+	public boolean deleteMessage(Long id) {
+		String sqlDeleteMessage = "DELETE FROM message WHERE message_id = ?";	
+		int rows = jdbcTemplate.update(sqlDeleteMessage, id);
+		return rows > 0;
 	}
 
 }

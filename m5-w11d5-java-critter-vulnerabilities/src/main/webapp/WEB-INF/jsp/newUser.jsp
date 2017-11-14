@@ -4,7 +4,9 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-	
+		$.validator.addMethod('capitals', function(value){
+			return value.match(/[A-Z]/);
+		});
 		$("form").validate({
 			
 			rules : {
@@ -12,14 +14,20 @@
 					required : true
 				},
 				password : {
-					required : true
+					required: true,
+					minLength: 15,
+					capitals: true,
 				},
 				confirmPassword : {
-					required : true,		
-					equalTo : "#password"  
+					required: true,		
+					equalTo: "#password",  
 				}
 			},
 			messages : {			
+				password: {
+					minlength: "Password too short, must be at least 15 characters",
+					capitals: "Field must contain a capital letter",
+				},
 				confirmPassword : {
 					equalTo : "Passwords do not match"
 				}
